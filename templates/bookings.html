@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2 class="mb-4">My Bookings</h2>
+
+  {% if bookings %}
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Show</th>
+            <th>Venue</th>
+            <th>Seats</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for booking in bookings %}
+            <tr>
+              <td>{{ booking.show.name }}</td>
+              <td>{{ booking.show.venue.name }}</td>
+              <td>{{ booking.seats }}</td>
+              <td>
+                <a href="{{ url_for('cancel_booking', id=booking.booking_id) }}" class="btn btn-sm btn-danger">Cancel booking</a>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  {% else %}
+    <div class="alert alert-info">You have no bookings yet.</div>
+  {% endif %}
+{% endblock %}

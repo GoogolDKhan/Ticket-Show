@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>{{ title }}</h2>
+<form method="post">
+  <div class="form-group">
+    <label for="venue_name">Venue Name</label>
+    <input type="text" name="venue_name" class="form-control" value="{{ venue.name }}" disabled>
+  </div>
+  <div class="form-group">
+    <label for="show_name">Show Name</label>
+    <input type="text" name="show_name" class="form-control" value="{{ show.name }}" disabled>
+  </div>
+  <div class="form-group">
+    <label for="name">Available Seats</label>
+    <input type="text" name="name" class="form-control" value="{{ venue.capacity - venue.seats_booked }}" disabled>
+  </div>
+  <div class="form-group">
+    <label for="price">Price</label>
+    <input type="text" name="price" class="form-control" value="{{ show.ticket_price }}" disabled>
+  </div>
+  <div class="form-group">
+    <label for="seats">Number of Tickets</label>
+    <input type="number" name="seats" class="form-control" required>
+  </div>
+  <button type="submit" class="btn btn-primary">submit</button>
+</form>
+{% endblock %}

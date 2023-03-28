@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="jumbotron">
+    <h1 class="display-4">Welcome to the app!</h1>
+    <p class="lead">Click <a href="{{ url_for('admin_login') }}">here</a> to log in as admin</p>
+    <p class="lead">Click <a href="{{ url_for('user_login') }}">here</a> to log in as User</p>
+  </div>
+{% endblock %}

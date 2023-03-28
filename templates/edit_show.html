@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>{{ title }}</h2>
+  <form method="post">
+    {{ form.csrf_token }}
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" name="name" class="form-control" value="{{ show.name }}" required>
+    </div>
+    <div class="form-group">
+      <label for="rating">Rating</label>
+      <input type="number" name="rating" class="form-control" value="{{ show.rating }}" required>
+    </div>
+    <div class="form-group">
+      <label for="tags">Tags</label>
+      <input type="text" name="tags" class="form-control" value="{{ show.tags }}">
+    </div>
+    <div class="form-group">
+      <label for="ticket_price">Ticket Price</label>
+      <input type="number" name="ticket_price" class="form-control" value="{{ show.ticket_price }}" required>
+    </div>
+    <button type="submit" class="btn btn-primary">submit</button>
+  </form>
+{% endblock %}
